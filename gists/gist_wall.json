@@ -1,0 +1,14 @@
+{
+  "description": "Gist Wall — all snippets, logit keystrokes, debug traces, and system outputs",
+  "categories": {
+    "logit": { "label": "Logit Keystrokes", "icon": "⌨️", "color": "#00ff00" },
+    "snippet": { "label": "Code Snippets", "icon": "📝", "color": "#00ccff" },
+    "error": { "label": "Runtime Errors", "icon": "⚠️", "color": "#ff4444" },
+    "debug": { "label": "Debug Traces", "icon": "🔍", "color": "#ffaa00" },
+    "kv": { "label": "KV Snapshots", "icon": "🗄️", "color": "#aa66ff" },
+    "keyword": { "label": "Keyword Dumps", "icon": "🏷️", "color": "#66ff66" },
+    "lora": { "label": "LoRA Updates", "icon": "🧠", "color": "#ff66aa" },
+    "dream": { "label": "Dream Outputs", "icon": "🌙", "color": "#9966ff" }
+  },
+  "gists": []
+}
