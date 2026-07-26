@@ -10,5 +10,30 @@
     "lora": { "label": "LoRA Updates", "icon": "🧠", "color": "#ff66aa" },
     "dream": { "label": "Dream Outputs", "icon": "🌙", "color": "#9966ff" }
   },
-  "gists": []
+  "gists": [
+    {
+      "id": "ef7e82ce3cb15c0becd2f5f859d9dab9",
+      "url": "https://gist.github.com/chrisalunlloyd2-sudo/ef7e82ce3cb15c0becd2f5f859d9dab9",
+      "filename": "heartbeat_20260725.log",
+      "category": "logit",
+      "description": "Logit keystrokes — heartbeat consolidation 2026-07-25",
+      "timestamp": "2026-07-26T01:30:00Z"
+    },
+    {
+      "id": "e046befb882d29ef7d3b0d434f373095",
+      "url": "https://gist.github.com/chrisalunlloyd2-sudo/e046befb882d29ef7d3b0d434f373095",
+      "filename": "kv_snapshot_20260725.json",
+      "category": "kv",
+      "description": "KV store snapshot — global keywords and dream state",
+      "timestamp": "2026-07-26T01:30:00Z"
+    },
+    {
+      "id": "1aaa175de9ba1916eabfc20a47096b06",
+      "url": "https://gist.github.com/chrisalunlloyd2-sudo/1aaa175de9ba1916eabfc20a47096b06",
+      "filename": "ViperKernel_log.md",
+      "category": "snippet",
+      "description": "ViperKernel — project dependencies, runtime errors, debug logs",
+      "timestamp": "2026-07-26T01:30:00Z"
+    }
+  ]
 }
