@@ -35,6 +35,12 @@ def run(cmd):
     result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
     return result.stdout.strip(), result.stderr.strip(), result.returncode
 
+def write_text(path, content):
+    """Write text to path, creating parent dirs as needed."""
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, 'w') as f:
+        f.write(content)
+
 def fetch_dependency_tree(repo):
     """Fetch dependency files from a repo"""
     deps = {}
@@ -142,8 +148,7 @@ def main():
         if deps:
             dep_content = '\n\n'.join([f"### {f}\n```\n{c}\n```" for f, c in deps.items()])
             dep_path = f"projects/{repo_name}/dependencies.md"
-            with open(dep_path, 'w') as f:
-                f.write(f"# {repo_name} — Dependencies\n\n{dep_content}\n\n*Auto-updated: {datetime.utcnow().isoformat()}*")
+            write_text(dep_path, f"# {repo_name} — Dependencies\n\n{dep_content}\n\n*Auto-updated: {datetime.utcnow().isoformat()}*")
             print(f"  Dependencies saved to {dep_path}")
             
             # Post as gist
@@ -161,8 +166,7 @@ def main():
                     for r in failed
                 ])
                 error_path = f"projects/{repo_name}/errors.md"
-                with open(error_path, 'w') as f:
-                    f.write(f"# {repo_name} — Runtime Errors\n\n{error_content}\n\n*Auto-updated: {datetime.utcnow().isoformat()}*")
+                write_text(error_path, f"# {repo_name} — Runtime Errors\n\n{error_content}\n\n*Auto-updated: {datetime.utcnow().isoformat()}*")
                 print(f"  Errors saved to {error_path}")
                 
                 url = post_gist('error', f'{repo_name}_errors.md', error_content, f'{repo_name} runtime errors')
@@ -172,8 +176,7 @@ def main():
     # 3. Snapshot KV store
     kv_data = snapshot_kv()
     kv_path = f"kv_snapshots/snapshot_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.json"
-    with open(kv_path, 'w') as f:
-        f.write(kv_data)
+    write_text(kv_path, kv_data)
     print(f"\nKV snapshot saved to {kv_path}")
     
     url = post_gist('kv', f'kv_snapshot_{datetime.utcnow().strftime("%Y%m%d_%H%M%S")}.json', kv_data, 'KV store snapshot')
@@ -183,8 +186,7 @@ def main():
     # 4. Snapshot keywords
     kw_data = snapshot_keywords()
     kw_path = f"keywords/keywords_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.json"
-    with open(kw_path, 'w') as f:
-        f.write(kw_data)
+    write_text(kw_path, kw_data)
     print(f"Keyword snapshot saved to {kw_path}")
     
     url = post_gist('keyword', f'keywords_{datetime.utcnow().strftime("%Y%m%d_%H%M%S")}.json', kw_data, 'Keyword list snapshot')
