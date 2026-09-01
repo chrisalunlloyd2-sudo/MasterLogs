@@ -7,4 +7,4 @@ uvicorn[standard]>=0.23
 
 ```
 
-*Auto-updated: 2026-08-31T08:30:55.606847*
+*Auto-updated: 2026-09-01T07:37:21.699768*
